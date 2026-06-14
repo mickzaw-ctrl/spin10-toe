@@ -6,7 +6,7 @@ import math
 import numpy as np
 
 # =================================================================
-#  PARAMETRY Z PUBLIKACJI VI (v7.0)
+#  PARAMETRY Z PUBLICATIONS VI (v7.0)
 # =================================================================
 N      = 120
 k_mean = 4
@@ -71,10 +71,10 @@ print(f"  M_SUSY > 4 TeV (split-SUSY lub natural SUSY)")
 print(f"  Spin(10) z M_SUSY=1 TeV jest wykluczone przez LHC!")
 
 # =================================================================
-#  2. PEŁNA QG 1-PĘTLA
+#  2. FULL QG 1-LOOP
 # =================================================================
 print("\n" + "="*65)
-print(" 2. PEŁNA QG 1-pętlowa")
+print(" 2. PEŁNA QG 1-loop")
 print("="*65)
 
 # Multiplets Spin(10)
@@ -97,7 +97,7 @@ total_multiplets = sum(N_mult for _, N_mult, _ in multiplets)
 print(f"  {'TOTAL':<25} | {total_multiplets:<6d} | — | —")
 
 print(f"\nΓ_1loop (suma) = {Gamma_1loop}")
-print(f"  -> Fermiony DOMINUJĄ (ujemny wkład)")
+print(f"  -> Fermions DOMINATE (negative contribution)")
 print(f"  -> Spin(10) ma specyficzny bilans")
 
 # Anomalia Weyla
@@ -105,7 +105,7 @@ print(f"\nAnomalia Weyla (a_4):")
 print(f"  a_4 = {a_4_anomaly}")
 print(f"  -> NIE ANULUJE SIĘ")
 print(f"  -> Wymaga dodatkowych multipletów")
-print(f"  -> Remedium: 6 sektorów skalarnych LUB ciemny sektor")
+print(f"  -> Remedium: 6 sektorów scalernych LUB ciemny sektor")
 
 # Fine-tuning
 print(f"\nFine-tuning:")
@@ -123,15 +123,15 @@ print("="*65)
 # Masa gravitino
 F_term = 1e20  # GeV^2
 m_32_formula = F_term / (math.sqrt(3) * M_Pl)
-print(f"F-term (złamanie SUSY)   = {F_term:.0e} GeV²")
+print(f"F-term (zviolation SUSY)   = {F_term:.0e} GeV²")
 print(f"m_{{3/2}} = F/√3·M_Pl      = {m_32_formula:.3e} GeV")
 print(f"m_{{3/2}} (Publ. VI)      = {m_gravitino:.3e} GeV")
 
-# Gęstość reliktowa
+# Relic density
 T_reheat = 1e10  # GeV (standard)
 Omega_32_h2 = 2.70e10
 Omega_DM_h2 = 0.12
-print(f"\nGęstość reliktowa:")
+print(f"\nRelic density:")
 print(f"  T_reheat               = {T_reheat:.0e} GeV")
 print(f"  Ω_{{3/2}} h²            = {Omega_32_h2:.2e}")
 print(f"  Ω_DM h² (obserwacja)   = {Omega_DM_h2}")
@@ -170,14 +170,14 @@ print(f"  -> a-theorem SPEŁNIONY ✓")
 print(f"\nBiegnięcie wymiaru spektralnego:")
 print(f"  d_S(UV) = {d_S_UV} (Planck scale)")
 print(f"  d_S(IR) = {d_S_IR} (makroskopowo)")
-print(f"  -> Nie osiąga 4 (sieć N=120 za mała)")
-print(f"  -> Remedium: N=10^6 (pełna zgodność z CDT)")
+print(f"  -> Does not reach 4 (network N=120 too small)")
+print(f"  -> Remedy: N=10^6 (full agreement with CDT)")
 
 # Verlinde
 print(f"\nGrawitacja emergentna (Verlinde):")
 print(f"  F(r) = -T · ∂S/∂r")
 print(f"  Test na grafie: {Verlinde_test}")
-print(f"  -> Grawitacja WYŁANIA SIĘ z entropii")
+print(f"  -> Gravity EMERGES from entropy")
 
 # =================================================================
 #  5. Λ W HEKSALOGII - FINALNA FORMUŁA
@@ -186,7 +186,7 @@ print("\n" + "="*65)
 print(" 5. Λ w HEKSALOGII (z SUSY)")
 print("="*65)
 
-# Kompletna formuła
+# Complete formuła
 Lambda_YM = (3.0/4.0) * (1 - cos_Phi)
 Lambda_top = Var_k
 Lambda_anom = 3.958e-4   # Seeley-DeWitt
@@ -213,7 +213,7 @@ print("="*72)
 print(f"{'Predykcja':<35} | {'Model':<14} | {'Eksperyment':<18} | Status")
 print("-"*72)
 print(f"{'Witten Index':<35} | {Witten_index:<14d} | LHC              | ✓")
-print(f"{'Γ_1loop (pełna QG)':<35} | {Gamma_1loop:<14.4f} | teoria QG        | ✓")
+print(f"{'Γ_1loop (full QG)':<35} | {Gamma_1loop:<14.4f} | teoria QG        | ✓")
 print(f"{'a_4 (Weyl anomalia)':<35} | {a_4_anomaly:<14.4f} | teoria           | ⚠️")
 print(f"{'Fine-tune SUSY':<35} | {fine_tune_SUSY:<14.2e} | teoria           | ✓ poprawa")
 print(f"{'m_gravitino':<35} | {m_gravitino:<14.2e} | DM searches      | ★")
@@ -233,12 +233,12 @@ print(f"{'Λ (full)':<35} | {Lambda_total_Lor:<14.4f} | teoria           | ✓ e
 print("="*72)
 
 # =================================================================
-#  7. 7 PUBLIKACJI - PORÓWNANIE
+#  7. 7 PUBLICATIONS - COMPARISON
 # =================================================================
 print("\n" + "="*72)
-print(" 7 PUBLIKACJI - PORÓWNANIE GŁÓWNYCH WYNIKÓW")
+print(" 7 PUBLICATIONS - COMPARISON OF MAIN RESULTS")
 print("="*72)
-print(f"{'Publ.':<10} | {'Temat':<45} | {'Kluczowy wynik'}")
+print(f"{'Publ.':<10} | {'Temat':<45} | {'Kluczowy result'}")
 print("-"*72)
 print(f"{'I':<10} | {'Lorentz + Bounce + Causal Sets':<45} | CF→1, d_S:2→4")
 print(f"{'II':<10} | {'P(k) + Entropia dS + Holografia':<45} | n_s=0.98, S_dS=9.5")
@@ -264,7 +264,7 @@ print("   → Axion Spin(10): m_a=28neV (CASPEr)")
 print("   → ALBO: gravitino keV (alternatywa)")
 
 print("\n3. Co to jest ciemna energia?")
-print("   → Emergent Λ z próżni Spin(10)")
+print("   → Emergent Lambda from Spin(10) vacuum")
 print("   → Λ → 0 w pełnej Lorentz (CF→1)")
 
 print("\n4. Jak powstała materia?")
@@ -272,13 +272,13 @@ print("   → Torsja chiralna: η_B~4.5e-9 (7× za dużo)")
 print("   → Resonant leptogeneza: η_B~1e-21 (za małe)")
 print("   → Razem: blisko obserwowanej 6.1e-10")
 
-print("\n5. Jak wyglądała inflacja?")
+print("\n5. What did inflation look like?")
 print(f"   → α-Att Spin(10), α = {SPIN10_DIM/12}")
 print("   → r=0.0125, n_s=0.967")
 print("   → ZGODNE z Planck i BICEP")
 
 # =================================================================
-#  9. PORÓWNANIE Z INNYMI TOE
+#  9. COMPARISON Z INNYMI TOE
 # =================================================================
 print("\n" + "="*72)
 print(" SPIN(10) vs INNE TOE (FINALNA OCENA)")
@@ -286,11 +286,11 @@ print("="*72)
 print(f"{'Model':<28} | {'Unif.':<6} | {'3gen':<8} | {'SUSY':<5} | {'QG':<4} | {'Testy':<8} | Fals.")
 print("-"*72)
 print(f"{'Struny/M-theory':<28} | {'✓':<6} | {'trudne':<8} | {'✓':<5} | {'✓':<4} | {'mało':<8} | niska")
-print(f"{'LQG':<28} | {'✗':<6} | {'brak':<8} | {'✗':<5} | {'✓':<4} | {'QG':<8} | średnia")
-print(f"{'SU(5) GUT':<28} | {'częśc.':<6} | {'ręczne':<8} | {'✗':<5} | {'✗':<4} | {'decay':<8} | wysoka")
-print(f"{'SO(10) fenom.':<28} | {'✓':<6} | {'ręczne':<8} | {'✓':<5} | {'✗':<4} | {'średnio':<8} | średnia")
-print(f"{'**Spin(10) heksalog**':<28} | {'✓':<6} | {'**emerg.**':<8} | {'✓':<5} | {'✓':<4} | {'**25+**':<8} | **wysoka**")
-print(f"{'Asymptotic Safety':<28} | {'✗':<6} | {'brak':<8} | {'✗':<5} | {'✓':<4} | {'UV fp':<8} | średnia")
+print(f"{'LQG':<28} | {'✗':<6} | {'brak':<8} | {'✗':<5} | {'✓':<4} | {'QG':<8} | medium")
+print(f"{'SU(5) GUT':<28} | {'partial':<6} | {'manual':<8} | {'✗':<5} | {'✗':<4} | {'decay':<8} | high")
+print(f"{'SO(10) fenom.':<28} | {'✓':<6} | {'manual':<8} | {'✓':<5} | {'✗':<4} | {'moderate':<8} | medium")
+print(f"{'**Spin(10) heksalog**':<28} | {'✓':<6} | {'**emerg.**':<8} | {'✓':<5} | {'✓':<4} | {'**25+**':<8} | **high**")
+print(f"{'Asymptotic Safety':<28} | {'✗':<6} | {'brak':<8} | {'✗':<5} | {'✓':<4} | {'UV fp':<8} | medium")
 print("="*72)
 
 # =================================================================
@@ -314,7 +314,7 @@ print("EFEKTYWNY MODEL Teorii Wszystkiego:")
 print("  ✓ 7 publikacji + Raport I = 8 dokumentów")
 print("  ✓ 25+ testowalnych predykcji")
 print("  ✓ 4 unikalne sygnatury")
-print("  ✓ 5 wielkich pytań fizyki ma odpowiedź")
+print("  ✓ 5 great physics questions have an answer")
 print("  ✓ Gotowy do konfrontacji z danymi 2025-2040")
 print()
 print("EFEKT SUSY:")
