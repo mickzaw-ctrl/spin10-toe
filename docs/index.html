@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spin(10) Theory of Everything — SHZSpin10QuantumEngine</title>
+  <meta name="description" content="A complete computational implementation of a Spin(10) Theory of Everything on a relational graph. 38 testable predictions, 7 publications, Monte Carlo simulation." />
+  <meta property="og:title" content="Spin(10) Theory of Everything" />
+  <meta property="og:description" content="SHZSpin10QuantumEngine v8.0 — complete heptalogy: relational graph, Monte Carlo, 38 testable predictions vs 9 experiments." />
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #21262d;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent2: #bc8cff;
+      --accent3: #39d353;
+      --text: #e6edf3;
+      --text2: #8b949e;
+      --yellow: #e3b341;
+      --red: #f85149;
+      --orange: #f0883e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; gap: 2rem;
+      height: 56px;
+    }
+    nav .logo { font-weight: 700; font-size: 1rem; color: var(--accent); white-space: nowrap; }
+    nav a { color: var(--text2); text-decoration: none; font-size: 0.9rem; transition: color .2s; }
+    nav a:hover { color: var(--text); }
+    nav .nav-links { display: flex; gap: 1.5rem; margin-left: auto; }
+    nav .btn-gh {
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text); padding: 6px 14px; border-radius: 6px;
+      font-size: 0.85rem; text-decoration: none; transition: background .2s;
+    }
+    nav .btn-gh:hover { background: var(--border); }
+
+    /* HERO */
+    .hero {
+      text-align: center; padding: 6rem 2rem 4rem;
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(88,166,255,0.12), transparent);
+    }
+    .hero-badge {
+      display: inline-block; background: rgba(88,166,255,0.1);
+      border: 1px solid rgba(88,166,255,0.3); color: var(--accent);
+      padding: 4px 14px; border-radius: 20px; font-size: 0.8rem;
+      margin-bottom: 1.5rem; letter-spacing: .05em; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+      line-height: 1.15; margin-bottom: 1rem;
+      background: linear-gradient(135deg, #e6edf3 0%, var(--accent) 60%, var(--accent2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      max-width: 640px; margin: 0 auto 2rem;
+      color: var(--text2); font-size: 1.1rem;
+    }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 22px; border-radius: 8px; font-size: 0.95rem;
+      font-weight: 600; text-decoration: none; transition: all .2s;
+    }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-primary:hover { background: #79c0ff; transform: translateY(-1px); }
+    .btn-secondary {
+      background: var(--bg3); color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: var(--border); transform: translateY(-1px); }
+
+    /* BADGES */
+    .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--bg2); border: 1px solid var(--border);
+      padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; color: var(--text2);
+    }
+    .badge span { color: var(--text); font-weight: 600; }
+
+    /* STATS STRIP */
+    .stats-strip {
+      display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
+      background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+    }
+    .stat { text-align: center; padding: 0 2.5rem; }
+    .stat + .stat { border-left: 1px solid var(--border); }
+    .stat .number { font-size: 2rem; font-weight: 800; color: var(--accent); }
+    .stat .label { font-size: 0.8rem; color: var(--text2); margin-top: 2px; }
+
+    /* SECTIONS */
+    section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+    h2 {
+      font-size: 1.7rem; font-weight: 700; margin-bottom: 0.4rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    h2 .section-icon { font-size: 1.4rem; }
+    .section-sub { color: var(--text2); margin-bottom: 2rem; font-size: 0.95rem; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+    /* HEPTALOGY TIMELINE */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+      width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent2));
+      border-radius: 2px;
+    }
+    .tl-item {
+      position: relative; margin-bottom: 1.5rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem 1.4rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .tl-item:hover { border-color: var(--accent); transform: translateX(4px); }
+    .tl-item::before {
+      content: ''; position: absolute; left: -2.35rem; top: 1.4rem;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+    }
+    .tl-item.new::before { background: var(--accent2); }
+    .tl-num { font-size: 0.75rem; color: var(--text2); margin-bottom: 4px; letter-spacing: .05em; text-transform: uppercase; }
+    .tl-title { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+    .tl-result { font-size: 0.88rem; color: var(--text2); }
+    .tl-result code {
+      background: var(--bg3); padding: 1px 6px; border-radius: 4px;
+      color: var(--accent); font-family: 'SF Mono', monospace; font-size: 0.82rem;
+    }
+    .tl-ver {
+      position: absolute; right: 1.2rem; top: 1.2rem;
+      font-size: 0.72rem; background: var(--bg3);
+      border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; color: var(--text2);
+    }
+
+    /* PREDICTIONS TABLE */
+    .pred-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .pred-table th {
+      text-align: left; padding: 10px 14px;
+      background: var(--bg3); color: var(--text2);
+      border-bottom: 2px solid var(--border); font-weight: 600;
+    }
+    .pred-table td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border);
+    }
+    .pred-table tr:hover td { background: rgba(88,166,255,0.04); }
+    .pred-table code {
+      background: var(--bg3); padding: 1px 6px; border-radius: 4px;
+      color: var(--accent2); font-family: 'SF Mono', monospace;
+    }
+    .status-ok   { color: var(--accent3); font-weight: 700; }
+    .status-wait { color: var(--yellow);  font-weight: 700; }
+
+    /* REMEDIES */
+    .remedies-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;
+    }
+    .remedy-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.3rem;
+      transition: border-color .2s;
+    }
+    .remedy-card:hover { border-color: var(--accent2); }
+    .remedy-num {
+      display: inline-block; width: 28px; height: 28px; line-height: 28px;
+      text-align: center; background: var(--accent2); color: #0d1117;
+      border-radius: 50%; font-weight: 800; font-size: 0.85rem; margin-bottom: 0.6rem;
+    }
+    .remedy-title { font-weight: 700; margin-bottom: 0.3rem; }
+    .remedy-formula { font-size: 0.82rem; color: var(--accent); font-family: 'SF Mono', monospace; margin-bottom: 0.3rem; }
+    .remedy-result { font-size: 0.85rem; color: var(--text2); }
+
+    /* QUICKSTART */
+    .code-block {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+    }
+    .code-header {
+      background: var(--bg3); padding: 8px 16px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .code-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .code-lang { margin-left: auto; font-size: 0.75rem; color: var(--text2); }
+    pre {
+      padding: 1.4rem 1.6rem; overflow-x: auto;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.82rem; line-height: 1.7;
+    }
+    .kw  { color: #ff7b72; }
+    .fn  { color: #d2a8ff; }
+    .st  { color: #a5d6ff; }
+    .cm  { color: #8b949e; }
+    .nb  { color: #79c0ff; }
+    .nm  { color: #e3b341; }
+
+    /* PUBLICATIONS */
+    .pub-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;
+    }
+    .pub-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.3rem; display: flex; flex-direction: column;
+      transition: border-color .2s, transform .2s;
+    }
+    .pub-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .pub-num { font-size: 0.72rem; color: var(--text2); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+    .pub-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .pub-desc { font-size: 0.83rem; color: var(--text2); flex: 1; margin-bottom: 1rem; }
+    .pub-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent); text-decoration: none; font-size: 0.82rem; font-weight: 600;
+    }
+    .pub-link:hover { text-decoration: underline; }
+
+    /* STRUCT */
+    .struct-block {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.4rem 1.6rem;
+      font-family: 'SF Mono', monospace; font-size: 0.82rem; line-height: 1.8;
+    }
+    .dir  { color: var(--accent); font-weight: 700; }
+    .file { color: var(--text); }
+    .cm2  { color: var(--text2); }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 3rem 2rem;
+      border-top: 1px solid var(--border); color: var(--text2); font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .stat { padding: 0 1rem; }
+      .stat .number { font-size: 1.5rem; }
+      nav .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="logo">⚛ Spin(10) ToE</span>
+  <div class="nav-links">
+    <a href="#heptalogy">Heptalogy</a>
+    <a href="#predictions">Predictions</a>
+    <a href="#remedies">Remedies</a>
+    <a href="#quickstart">Quickstart</a>
+    <a href="#publications">Papers</a>
+  </div>
+  <a class="btn-gh" href="https://github.com/mickzaw-ctrl/spin10-toe" target="_blank">
+    ⭐ GitHub
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">v8.0 · Heptalogy Complete</div>
+  <h1>Spin(10) Theory<br>of Everything</h1>
+  <p>
+    A complete computational implementation of a Theory of Everything on a relational graph —
+    unifying quantum gravity, Spin(10) gauge symmetry, supersymmetry, and cosmology
+    with <strong>38 testable predictions</strong> confronted against 9 experiments.
+  </p>
+  <div class="hero-buttons">
+    <a class="btn btn-primary" href="https://github.com/mickzaw-ctrl/spin10-toe" target="_blank">
+      ★ View on GitHub
+    </a>
+    <a class="btn btn-secondary" href="#quickstart">
+      ▶ Quick Start
+    </a>
+    <a class="btn btn-secondary" href="#publications">
+      📄 Publications
+    </a>
+  </div>
+  <div class="badges">
+    <div class="badge">Python <span>3.8+</span></div>
+    <div class="badge">License <span>MIT</span></div>
+    <div class="badge">Engine <span>v8.0 / v9.0</span></div>
+    <div class="badge">Author <span>Michał Ślusarczyk</span></div>
+    <div class="badge">Status <span>Complete</span></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat"><div class="number">38</div><div class="label">Testable Predictions</div></div>
+  <div class="stat"><div class="number">7</div><div class="label">Publications</div></div>
+  <div class="stat"><div class="number">9</div><div class="label">Experiments</div></div>
+  <div class="stat"><div class="number">5</div><div class="label">Key Remedies</div></div>
+  <div class="stat"><div class="number">10⁶</div><div class="label">Max Network Nodes</div></div>
+</div>
+
+<!-- HEPTALOGY -->
+<section id="heptalogy">
+  <h2><span class="section-icon">📚</span> Heptalogy — 7 Publications</h2>
+  <p class="section-sub">From pre-geometry to the complete Theory of Everything</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-ver">v1.0</div>
+      <div class="tl-num">Report I</div>
+      <div class="tl-title">Pre-geometry &amp; Monte Carlo</div>
+      <div class="tl-result">Relational graph topology · Metropolis-Hastings equilibrium · <code>Var(k) → 32.67</code></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-ver">v2.0</div>
+      <div class="tl-num">Publication I</div>
+      <div class="tl-title">Lorentz Invariance &amp; Big Bounce</div>
+      <div class="tl-result">CPT symmetry · Conformal Factor <code>CF = 0.867</code> · Bounce coherence</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-ver">v3.0</div>
+      <div class="tl-num">Publication II</div>
+      <div class="tl-title">Riemannian Geometry + dS Entropy + Holography</div>
+      <div class="tl-result">Spectral dimension flow <code>d_S: 2 → 4</code> · Holographic bound &gt;99%</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-ver">v4.0</div>
+      <div class="tl-num">Publication III</div>
+      <div class="tl-title">α-Attractor Inflation + SGWB + Torsion as 5th Force</div>
+      <div class="tl-result"><code>n_s = 0.9667</code> · <code>r = 0.0125</code> · <code>Ω_GW(1mHz) = 10⁻⁷</code> · <code>α₅ ~ 10⁻⁶</code></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-ver">v5.0</div>
+      <div class="tl-num">Publication IV</div>
+      <div class="tl-title">Fermion Generations + f_NL + CMB Bispectrum</div>
+      <div class="tl-result"><code>N_gen = 3</code> (topological) · <code>f_NL^eq = 14.5</code> · CMB-S4 target</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-ver">v6.0</div>
+      <div class="tl-num">Publication V</div>
+      <div class="tl-title">Resonant Leptogenesis + RGE + Bispectrum + Axion</div>
+      <div class="tl-result"><code>m_a = 28.5 neV</code> · <code>η_B = 6.2×10⁻¹⁰</code> ✓ · RGE 2-loop</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-ver">v7.0</div>
+      <div class="tl-num">Publication VI</div>
+      <div class="tl-title">SUSY + Full QG + Gravitino + Emergence</div>
+      <div class="tl-result"><code>M_GUT = 2×10¹⁶ GeV</code> · Gravitino DM · SUGRA unification</div>
+    </div>
+    <div class="tl-item new">
+      <div class="tl-ver">v8.0 · NEW</div>
+      <div class="tl-num">Publication VII</div>
+      <div class="tl-title">Complete Theory of Everything — Multi-Bounce S-Matrix, 2-loop RGE, Asymptotic Safety</div>
+      <div class="tl-result">UV fixed point <code>g* = 0.83</code> · SGWB non-Gaussianity · Torsion 5th force · Full synthesis</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" style="max-width:1100px;margin:0 auto;">
+
+<!-- PREDICTIONS -->
+<section id="predictions">
+  <h2><span class="section-icon">🔭</span> Key Predictions vs Experiments</h2>
+  <p class="section-sub">38 testable predictions confronted against 9 current and future experiments</p>
+
+  <div style="overflow-x:auto;">
+  <table class="pred-table">
+    <thead>
+      <tr>
+        <th>Prediction</th>
+        <th>Spin(10) Value</th>
+        <th>Experiment</th>
+        <th>Timeline</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Spectral index <code>n_s</code></td>
+        <td><code>0.9667</code></td>
+        <td>Planck PR4</td>
+        <td>2025</td>
+        <td><span class="status-ok">✅ 0.42σ</span></td>
+      </tr>
+      <tr>
+        <td>Tensor-to-scalar ratio <code>r</code></td>
+        <td><code>0.0125</code></td>
+        <td>LiteBIRD</td>
+        <td>2030</td>
+        <td><span class="status-wait">⏳ In range</span></td>
+      </tr>
+      <tr>
+        <td>Non-Gaussianity <code>f_NL^eq</code></td>
+        <td><code>14.5</code></td>
+        <td>CMB-S4</td>
+        <td>2028</td>
+        <td><span class="status-wait">⏳ In range</span></td>
+      </tr>
+      <tr>
+        <td>SGWB <code>Ω_GW</code> (1 mHz)</td>
+        <td><code>10⁻⁷</code></td>
+        <td>LISA</td>
+        <td>2035</td>
+        <td><span class="status-wait">⏳ 7.7 dec. above noise</span></td>
+      </tr>
+      <tr>
+        <td>Axion mass <code>m_a</code></td>
+        <td><code>28.5 neV</code></td>
+        <td>CASPEr</td>
+        <td>2028</td>
+        <td><span class="status-wait">⏳ In range</span></td>
+      </tr>
+      <tr>
+        <td>Gluino mass <code>m_g̃</code></td>
+        <td><code>10.6 TeV</code></td>
+        <td>HE-LHC</td>
+        <td>2027+</td>
+        <td><span class="status-wait">⏳ In range</span></td>
+      </tr>
+      <tr>
+        <td>Proton lifetime <code>τ_p</code></td>
+        <td><code>~10³⁶ yr</code></td>
+        <td>Hyper-K</td>
+        <td>2027+</td>
+        <td><span class="status-wait">⏳ Observable</span></td>
+      </tr>
+      <tr>
+        <td>5th force <code>α₅</code></td>
+        <td><code>~10⁻⁶</code></td>
+        <td>IUPUI</td>
+        <td>2025+</td>
+        <td><span class="status-wait">⏳ In range</span></td>
+      </tr>
+      <tr>
+        <td>Baryon asymmetry <code>η_B</code></td>
+        <td><code>6.2×10⁻¹⁰</code></td>
+        <td>Observed</td>
+        <td>—</td>
+        <td><span class="status-ok">✅ Confirmed</span></td>
+      </tr>
+      <tr>
+        <td>Fermion generations <code>N_gen</code></td>
+        <td><code>3</code> (topological)</td>
+        <td>Observed</td>
+        <td>—</td>
+        <td><span class="status-ok">✅ Confirmed</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<hr class="divider" style="max-width:1100px;margin:0 auto;">
+
+<!-- REMEDIES -->
+<section id="remedies">
+  <h2><span class="section-icon">🔧</span> 5 Key Remedies</h2>
+  <p class="section-sub">Resolving the five most challenging theoretical problems</p>
+
+  <div class="remedies-grid">
+    <div class="remedy-card">
+      <div class="remedy-num">1</div>
+      <div class="remedy-title">Split-SUSY</div>
+      <div class="remedy-formula">M_SUSY = 5 TeV</div>
+      <div class="remedy-result">m_g̃ = 10.6 TeV · m_t̃ = 5 TeV · LSP = 1.5 TeV — exactly in HE-LHC reach</div>
+    </div>
+    <div class="remedy-card">
+      <div class="remedy-num">2</div>
+      <div class="remedy-title">3-Flavour Boltzmann</div>
+      <div class="remedy-formula">F = 4.27 × 10¹¹</div>
+      <div class="remedy-result">η_B = 6.2×10⁻¹⁰ ✅ — reproduces observed baryon asymmetry exactly</div>
+    </div>
+    <div class="remedy-card">
+      <div class="remedy-num">3</div>
+      <div class="remedy-title">Hidden SUSY Sector</div>
+      <div class="remedy-formula">N_hidden = 125 multiplets</div>
+      <div class="remedy-result">Weyl anomaly coefficient a₄ = 0 — full cancellation ✅</div>
+    </div>
+    <div class="remedy-card">
+      <div class="remedy-num">4</div>
+      <div class="remedy-title">Network Scaling N = 10⁶</div>
+      <div class="remedy-formula">P = 1 − 0.33 / √N</div>
+      <div class="remedy-result">&gt;99.97% holographic bound saturation</div>
+    </div>
+    <div class="remedy-card">
+      <div class="remedy-num">5</div>
+      <div class="remedy-title">Spectral Dimension Flow</div>
+      <div class="remedy-formula">d_S = 4(1 − e^{−N/150})</div>
+      <div class="remedy-result">UV: d_S = 2.0 → IR: d_S = 4.0 — smooth dimensional flow ✅</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" style="max-width:1100px;margin:0 auto;">
+
+<!-- QUICKSTART -->
+<section id="quickstart">
+  <h2><span class="section-icon">▶</span> Quick Start</h2>
+  <p class="section-sub">Get running in under 2 minutes</p>
+
+  <div style="display:grid;gap:1.5rem;">
+
+    <div>
+      <p style="color:var(--text2);margin-bottom:.5rem;font-size:.85rem;">1 · Clone &amp; install</p>
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dot" style="background:#ff5f57"></div>
+          <div class="code-dot" style="background:#febc2e"></div>
+          <div class="code-dot" style="background:#28c840"></div>
+          <span class="code-lang">bash</span>
+        </div>
+        <pre>git clone https://github.com/mickzaw-ctrl/spin10-toe.git
+cd spin10-toe
+pip install -r requirements.txt</pre>
+      </div>
+    </div>
+
+    <div>
+      <p style="color:var(--text2);margin-bottom:.5rem;font-size:.85rem;">2 · Run the engine</p>
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dot" style="background:#ff5f57"></div>
+          <div class="code-dot" style="background:#febc2e"></div>
+          <div class="code-dot" style="background:#28c840"></div>
+          <span class="code-lang">python</span>
+        </div>
+        <pre><span class="kw">from</span> <span class="nb">src.spin10_engine</span> <span class="kw">import</span> <span class="fn">SHZSpin10QuantumEngine</span>
+
+<span class="cm"># Initialize engine</span>
+engine = <span class="fn">SHZSpin10QuantumEngine</span>(N=<span class="nm">120</span>, k_target=<span class="nm">4</span>)
+
+<span class="cm"># Monte Carlo simulation</span>
+engine.<span class="fn">run_simulation</span>(n_steps=<span class="nm">3000</span>)
+
+<span class="cm"># Observables</span>
+obs = engine.<span class="fn">compute_observables</span>()
+<span class="fn">print</span>(<span class="st">f"Var(k) = {obs['Var_k']:.4f}"</span>)
+<span class="fn">print</span>(<span class="st">f"d_S    = {obs['d_S_IR']:.2f}"</span>)
+
+<span class="cm"># Predictions</span>
+pred = engine.<span class="fn">compute_predictions</span>()
+<span class="fn">print</span>(<span class="st">f"n_s = {pred['inflation']['n_s']:.4f}"</span>)
+<span class="fn">print</span>(<span class="st">f"r   = {pred['inflation']['r']:.4f}"</span>)
+
+<span class="cm"># Apply 5 key remedies</span>
+remedies = engine.<span class="fn">apply_remedies</span>()
+
+<span class="cm"># Full experimental tests</span>
+report = engine.<span class="fn">full_report</span>()</pre>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" style="max-width:1100px;margin:0 auto;">
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <h2><span class="section-icon">📄</span> Publications</h2>
+  <p class="section-sub">All 6 papers available as PDF in the repository</p>
+
+  <div class="pub-grid">
+    <div class="pub-card">
+      <div class="pub-num">Publication I</div>
+      <div class="pub-title">Quantum Cosmology, Lorentz Invariance &amp; Big Bounce</div>
+      <div class="pub-desc">CPT symmetry on the relational graph, conformal factor computation, multi-bounce S-matrix coherence.</div>
+      <a class="pub-link" href="https://github.com/mickzaw-ctrl/spin10-toe/blob/main/docs/publications/Publikacja_I_Kosmologia_Kwantowa_Lorentz.pdf" target="_blank">📄 Download PDF →</a>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">Publication II</div>
+      <div class="pub-title">Inflationary Power Spectrum, dS Entropy &amp; Holography</div>
+      <div class="pub-desc">Spectral dimension flow d_S: 2→4, de Sitter entropy, holographic bound saturation &gt;99%.</div>
+      <a class="pub-link" href="https://github.com/mickzaw-ctrl/spin10-toe/blob/main/docs/publications/Publikacja_II_Widmo_Inflacyjne_Entropia_deSitter.pdf" target="_blank">📄 Download PDF →</a>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">Publication III</div>
+      <div class="pub-title">α-Attractors, CPT, SGWB &amp; Torsion as 5th Force</div>
+      <div class="pub-desc">α-attractor inflation model, stochastic gravitational wave background, torsion as fifth force (α₅ ~ 10⁻⁶).</div>
+      <a class="pub-link" href="https://github.com/mickzaw-ctrl/spin10-toe/blob/main/docs/publications/Publikacja_III_AlphaAttraktory_CPT_SGWB_Torsja.pdf" target="_blank">📄 Download PDF →</a>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">Publication IV</div>
+      <div class="pub-title">Fermion Generations, Leptogenesis, f_NL &amp; CMB</div>
+      <div class="pub-desc">Topological derivation of N_gen = 3, resonant leptogenesis, equilateral non-Gaussianity f_NL = 14.5.</div>
+      <a class="pub-link" href="https://github.com/mickzaw-ctrl/spin10-toe/blob/main/docs/publications/Publikacja_IV_Fermiony_Leptogeneza_fNL_CMB.pdf" target="_blank">📄 Download PDF →</a>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">Publication V</div>
+      <div class="pub-title">Resonant Leptogenesis, RGE, Bispectrum &amp; Axion</div>
+      <div class="pub-desc">Two-loop RGE running, resonant leptogenesis, axion mass prediction m_a = 28.5 neV for CASPEr.</div>
+      <a class="pub-link" href="https://github.com/mickzaw-ctrl/spin10-toe/blob/main/docs/publications/Publikacja_V_Resonant_Leptogeneza_RGE_Bispektrum_Axion.pdf" target="_blank">📄 Download PDF →</a>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">Publication VI</div>
+      <div class="pub-title">SUSY, Full Quantum Gravity, Gravitino &amp; Emergence</div>
+      <div class="pub-desc">Full SUGRA unification, M_GUT = 2×10¹⁶ GeV, gravitino as dark matter candidate, emergent spacetime.</div>
+      <a class="pub-link" href="https://github.com/mickzaw-ctrl/spin10-toe/blob/main/docs/publications/Publikacja_VI_SUSY_FullQG_Gravitino_Emergencja.pdf" target="_blank">📄 Download PDF →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" style="max-width:1100px;margin:0 auto;">
+
+<!-- STRUCTURE -->
+<section>
+  <h2><span class="section-icon">📁</span> Repository Structure</h2>
+  <p class="section-sub">Organised by purpose</p>
+  <div class="struct-block">
+<span class="dir">spin10-toe/</span>
+├── <span class="dir">src/</span>
+│   ├── <span class="file">spin10_engine.py</span>        <span class="cm2"># Main engine v8.0 — full heptalogy</span>
+│   ├── <span class="file">spin10_engine_v9.py</span>     <span class="cm2"># Engine v9.0 — extended modules</span>
+│   ├── <span class="file">kluczowe_remedia.py</span>     <span class="cm2"># 5 key remedies</span>
+│   ├── <span class="file">predykcje_testowalne.py</span> <span class="cm2"># 38 testable predictions</span>
+│   ├── <span class="file">konfrontacja_summary.py</span> <span class="cm2"># Experiment confrontation</span>
+│   └── <span class="file">oblicz_lambda.py</span>        <span class="cm2"># Cosmological constant</span>
+├── <span class="dir">scripts/</span>                       <span class="cm2"># Per-publication calculation scripts</span>
+├── <span class="dir">tests/</span>
+│   └── <span class="file">testy_eksperymentalne.py</span> <span class="cm2"># Experimental tests vs data</span>
+├── <span class="dir">docs/</span>
+│   ├── <span class="dir">publications/</span>               <span class="cm2"># PDF papers (Pub. I–VI)</span>
+│   └── *.md                         <span class="cm2"># Full markdown documentation</span>
+├── <span class="file">requirements.txt</span>
+├── <span class="file">CITATION.cff</span>
+└── <span class="file">README.md</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:.5rem;">
+    <strong>SHZSpin10QuantumEngine v8.0</strong> — Complete Spin(10) Theory of Everything
+  </p>
+  <p>
+    Author: <strong>Michał Ślusarczyk</strong> ·
+    <a href="https://github.com/mickzaw-ctrl/spin10-toe" target="_blank">GitHub</a> ·
+    MIT License
+  </p>
+  <p style="margin-top:.5rem;font-size:.78rem;color:var(--text2);">
+    "38 testable predictions — the Universe will decide."
+  </p>
+</footer>
+
+</body>
+</html>
