@@ -6,7 +6,7 @@ import math
 import numpy as np
 
 # =================================================================
-#  PARAMETRY Z PUBLIKACJI IV (v5.0)
+#  PARAMETRY Z PUBLICATIONS IV (v5.0)
 # =================================================================
 N      = 120
 k_mean = 4
@@ -61,8 +61,8 @@ print(f"  3. Topologiczny:    ind(/D) = {n_zero_modes}  [Publ. IV]")
 
 print(f"\nKondensat chiralny (Bank-Casher):")
 print(f"  <ψ̄ψ> = {psi_psi_cond:.4f}")
-print(f"  -> Spontaniczne złamanie symetrii chiralnej")
-print(f"  -> Ujemna wartość = chiral symmetry breaking")
+print(f"  -> Spontaniczne zviolation symetrii chiral")
+print(f"  -> Negative value = chiral symmetry breaking")
 
 print(f"\nMasa Diraca z kondensatu:")
 print(f"  M_D = √(<ψ̄ψ>) × y_eff × M_GUT = {M_D_Pl:.4e} M_Pl")
@@ -81,8 +81,8 @@ print("\n" + "="*65)
 print(" 2. LEPTOGENEZA przez BIG BOUNCE")
 print("="*65)
 
-print(f"ε_CP (asymetria CP)   = {epsilon_CP}")
-print(f"  -> Maksymalna wartość (Bounce wzmacnia)")
+print(f"ε_CP (asymmetry CP)   = {epsilon_CP}")
+print(f"  -> Maximum value (Bounce amplifies)")
 print(f"K_washout             = {K_washout}")
 print(f"  -> Optymalny reżim")
 print(f"Y_L (final)           = 1.01e-20")
@@ -91,17 +91,17 @@ print(f"η_B (obserwacja)      = 6.10e-10")
 print(f"Stosunek              = {eta_B_lept/6.10e-10:.2e}x (za małe)")
 print(f"  -> Potrzebna resonant leptogenesis (Publ. V)")
 
-# Porównanie z torsja (Publ. III)
+# Comparison z torsja (Publ. III)
 eta_B_torsion = 4.5e-9
-print(f"\nPorównanie z baryogeneza z torsji (Publ. III):")
+print(f"\nComparison z baryogeneza z torsji (Publ. III):")
 print(f"  η_B (torsja)         = {eta_B_torsion:.2e}  (7× za duzo)")
-print(f"  η_B (leptogeneza)    = {eta_B_lept:.2e}  (10^11× za mało)")
+print(f"  η_B (leptogeneza)    = {eta_B_lept:.2e}  (10^11× too few)")
 print(f"  -> Dwa kanaly razem moga dac obserwowane η_B")
 
 # Warunki Sacharowa
 print(f"\nWarunki Sacharowa (3/3 spelnione):")
-print(f"  1. Złamanie B:        sphaleron ✓")
-print(f"  2. Złamanie CP:       ε_CP = {epsilon_CP} ≠ 0 ✓")
+print(f"  1. Zviolation B:        sphaleron ✓")
+print(f"  2. Zviolation CP:       ε_CP = {epsilon_CP} ≠ 0 ✓")
 print(f"  3. Brak równowagi:    Big Bounce ✓")
 
 # =================================================================
@@ -122,21 +122,21 @@ print(f"  f_NL^orth                = {f_NL_orth:.2e}")
 
 # Ksztalty
 print(f"\nKsztalt bispektrum:")
-print(f"  Spin(10): ~70% equilateral + 30% local")
+print(f"  Spin(10): ~70% equiyearseral + 30% local")
 print(f"  Slow-roll: ~czyste local (0.014)")
-print(f"  DBI: czyste equilateral (~35)")
+print(f"  DBI: czyste equiyearseral (~35)")
 print(f"  -> Spin(10) w sweet spot - specyficzna mieszanka")
 
-# Porównanie z Planck
+# Comparison z Planck
 print(f"\nPorownanie z Planck 2018:")
 print(f"  f_NL^local: Spin(10) = {f_NL_local}, Planck = -0.9+/-5.1, ZGODNE")
 print(f"  f_NL^equil: Spin(10) = {f_NL_equil}, Planck = -26+/-117, ZGODNE")
 
 # Detekcja CMB-S4
 print(f"\nDetekcja w CMB-S4 (2035):")
-print(f"  czułość CMB-S4: σ(f_NL^eq) ~ 1")
+print(f"  sensitivity CMB-S4: σ(f_NL^eq) ~ 1")
 print(f"  Spin(10): f_NL^eq = {f_NL_equil}")
-print(f"  Detekcja: {f_NL_equil}σ -> {'JEDNOZNACZNA' if f_NL_equil > 5 else 'marginalna'}")
+print(f"  Detection: {f_NL_equil}σ -> {'JEDNOZNACZNA' if f_NL_equil > 5 else 'marginalna'}")
 
 # =================================================================
 #  4. BISPEKTRUM CMB
@@ -152,12 +152,12 @@ print(f"  b_local(l) = (18/5) × f_NL^local × C_l²")
 print(f"\nSNR (Signal-to-Noise Ratio):")
 print(f"  SNR_local  = {SNR_local:.2e}  > 1: DETEKOWALNE")
 print(f"  SNR_equil  = {SNR_equil:.2e}  > 1: ZDECYDOWANIE DETEKOWALNE")
-print(f"  N_trójkątów = {N_triangles} (zakres Planck: [2, 2500])")
+print(f"  N_triangles = {N_triangles} (range Planck: [2, 2500])")
 
 print(f"\nMapa 2D bispektrum:")
 print(f"  B(l1,l2)|l3=200 - SymLogNorm")
-print(f"  3770 niezależnych trójkątów")
-print(f"  Struktura kształtu do porównania z obserwacjami")
+print(f"  3770 independent triangles")
+print(f"  Shape structure for comparison with observations")
 
 # =================================================================
 #  5. ROLA BISPEKTRUM W TESTOWANIU MODELU
@@ -169,23 +169,23 @@ print("="*65)
 print(f"Bispektrum jest NAJWAŻNIEJSZYM testem Spin(10):")
 print(f"  - f_NL^equil = {f_NL_equil} (14.5σ w CMB-S4)")
 print(f"  - Specyficzny kształt 70% eq + 30% loc")
-print(f"  - Porównanie z innymi modelami:")
+print(f"  - Comparison z innymi modelami:")
 print(f"    Slow-roll: f_NL^eq ~ 0 (wykluczone)")
 print(f"    DBI: f_NL^eq ~ 35 (innego kształtu)")
 print(f"    Spin(10): f_NL^eq ~ {f_NL_equil} (sweet spot)")
 
 # =================================================================
-#  6. PORÓWNANIE Z LITERATURĄ - TABELA
+#  6. COMPARISON Z LITERATURĄ - TABELA
 # =================================================================
 print("\n" + "="*72)
-print(" PORÓWNANIE Z INNYMI MODELAMI f_NL")
+print(" COMPARISON Z INNYMI MODELAMI f_NL")
 print("="*72)
 print(f"{'Model':<28} | {'f_NL^local':<14} | {'f_NL^equil':<14} | Status")
 print("-"*72)
 print(f"{'Slow-roll (Maldacena)':<28} | {0.014:<14.4f} | {0:<14.4f} | referencyjny")
-print(f"{'DBI inflation':<28} | {0:<14.4f} | {35:<14.4f} | (c_s^-2 duże)")
-print(f"{'Multi-field inflation':<28} | {10:<14.4f} | {5:<14.4f} | zależny")
-print(f"{'String inflation':<28} | {1:<14.4f} | {10:<14.4f} | model-zależny")
+print(f"{'DBI infyearsion':<28} | {0:<14.4f} | {35:<14.4f} | (c_s^-2 duże)")
+print(f"{'Multi-field infyearsion':<28} | {10:<14.4f} | {5:<14.4f} | zależny")
+print(f"{'String infyearsion':<28} | {1:<14.4f} | {10:<14.4f} | model-zależny")
 print(f"{'**Spin(10) α-att**':<28} | {f_NL_local:<14.4f} | {f_NL_equil:<14.4f} | **NASZ MODEL**")
 print("="*72)
 
@@ -209,7 +209,7 @@ print(f"{'η_B (leptogenesis)':<35} | {eta_B_lept:<14.2e} | obserwacja      | �
 print(f"{'ε_CP':<35} | {epsilon_CP:<14.2f} | (Sacharow)      | ✓")
 print(f"{'m_ν (seesaw)':<35} | {m_nu_eV:<14.3f} eV | Δm²_atm        | ✓")
 print(f"{'M_D (Dirac)':<35} | {M_D_Pl:<14.4e} M_Pl | GUT scale      | ✓")
-print(f"{'<ψ̄ψ> (kondensat)':<35} | {psi_psi_cond:<14.4f} | lattice QCD     | ✓")
+print(f"{'<ψ̄ψ> (kondensat)':<35} | {psi_psi_cond:<14.4f} | yearstice QCD     | ✓")
 print("="*72)
 
 # =================================================================
@@ -221,14 +221,14 @@ print("="*72)
 
 print("\n[TEST 1] f_NL^equil w CMB-S4 (2035)")
 print(f"  Predykcja Spin(10): {f_NL_equil}")
-print(f"  Czułość CMB-S4:    ~ 1")
+print(f"  CMB-S4 sensitivity:    ~ 1")
 print(f"  SNR:               {SNR_equil:.2e}  >>  1")
-print(f"  Kształt:           70% equilateral + 30% local")
+print(f"  Kształt:           70% equiyearseral + 30% local")
 print(f"  → NAJSILNIEJSZY TEST W HISTORII MODELU SPIN(10)")
 
 print("\n[TEST 2] SGWB w LISA (2035)")
 print(f"  Predykcja: Ω_GW(1 mHz) ~ 10^-7")
-print(f"  Czułość LISA:        10^-14")
+print(f"  LISA sensitivity:        10^-14")
 print(f"  SNR:                 10^7 (dekady)")
 print(f"  Struktura:           inflacja + GUT + Bounce")
 print(f"  → BEZPOŚREDNIA DETEKCJA")
@@ -246,14 +246,14 @@ print(f"Publ. II      (v3.0) + Riemanna + Weyla + dS + Holografia")
 print(f"Publ. III     (v4.0) + α-Att + CPT + SGWB + Torsja+Baryogeneza")
 print(f"Publ. IV      (v5.0) + Fermiony + Leptogeneza + f_NL + Bispektrum")
 
-print(f"\nGłówne wyniki tetralogii:")
+print(f"\nMain results of the tetralogy:")
 print(f"  ✓ Trzy generacje (3 niezależne wyprowadzenia)")
-print(f"  ✓ Stała kosmologiczna (emergent)")
+print(f"  ✓ Stała cosmological (emergent)")
 print(f"  ✓ Inflacja α-att (zgodna z danymi)")
 print(f"  ✓ SGWB (7 dekad powyżej LISA)")
 print(f"  ✓ CPT (idealnie zachowana)")
 print(f"  ✓ Baryogeneza (dwa kanały)")
-print(f"  ✓ Holografia (częściowo spełniona)")
+print(f"  ✓ Holography (partially satisfied)")
 print(f"  ✓ f_NL^equil = {f_NL_equil} (najsilniejszy test)")
 
 print(f"\nPlan na Publ. V:")
