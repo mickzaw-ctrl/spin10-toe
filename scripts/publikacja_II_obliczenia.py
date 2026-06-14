@@ -121,7 +121,7 @@ print("\n" + "="*65)
 print(" 3. ANOMALIA KONFOREMNA (Seeley-DeWitt)")
 print("="*65)
 
-# Szacowanie z symulacji
+# Szacowanie z simuyearsion
 # C² ~ 1.3 (Weyl RMS z PII)
 # R² ~ 2.25 (R ~ -1.5, R² ~ 2.25)
 C_sq = 1.69    # RMS²
@@ -136,17 +136,17 @@ print(f"<R²> (Ricci RMS²)      = {R_sq:.4f}")
 print(f"α (Seeley-DeWitt)      = {alpha_SD}")
 print(f"β (Seeley-DeWitt)      = {beta_SD}")
 print(f"a_4                    = {a_4:.2e}")
-print(f"  Wniosek:              = złamanie symetrii konforemnej przez Spin(10)")
+print(f"  Wniosek:              = zviolation symetrii konforemnej przez Spin(10)")
 print(f"  Konsekwencja:         wkład do Λ z renormalizacji")
 
 # =================================================================
-#  4. STALA KOSMOLOGICZNA - PEŁNA FORMUŁA
+#  4. COSMOLOGICAL CONSTANT - FULL FORMULA
 # =================================================================
 print("\n" + "="*65)
-print(" 4. STALA KOSMOLOGICZNA Λ - PEŁNA FORMUŁA")
+print(" 4. COSMOLOGICAL CONSTANT Lambda - FULL FORMULA")
 print("="*65)
 
-# Λ z 3 źródeł:
+# Lambda from 3 sources:
 # (a) Anomalia konforemna
 Lambda_anom = a_4 * 16 * math.pi**2 * G_N / 1.0  # w jednostkach a=1
 # (b) Topologia
@@ -186,8 +186,8 @@ tau_e_pi0 *= (N/150.0)
 tau_nu_K *= (N/150.0)
 
 print(f"N (PII)                 = {N} (vs N=150 w PI)")
-print(f"tau(p -> e+ pi0)        = {tau_e_pi0:.2e} lat")
-print(f"tau(p -> nu_bar K+)     = {tau_nu_K:.2e} lat")
+print(f"tau(p -> e+ pi0)        = {tau_e_pi0:.2e} years")
+print(f"tau(p -> nu_bar K+)     = {tau_nu_K:.2e} years")
 print(f"  Hyper-K 2030:         ~1e35  -> TESTABLE")
 
 # =================================================================
@@ -199,7 +199,7 @@ print("="*65)
 
 M_DM = M_GUT_eff * eps_F * cos_Phi
 print(f"M_DM (WIMP-like)        = {M_DM:.2e} GeV")
-print(f"  Detekcja:             XENONnT (do 2030)")
+print(f"  Detection:             XENONnT (do 2030)")
 
 # =================================================================
 #  7. STOCHASTYCZNE TŁO FAL GRAWITACYJNYCH
@@ -213,8 +213,8 @@ print("="*65)
 Omega_GW_r019 = (r/0.01) * 1e-15   # dla r=0.19 (PII)
 Omega_GW_attractor = (r_attractor/0.01) * 1e-15  # dla r=0.004 (α-attractor)
 print(f"Omega_GW (r=0.19, PII)  = {Omega_GW_r019:.2e}")
-print(f"  LISA (mHz):           czułość ~ 10^-12 -> DETECTABLE!")
-print(f"  Einstein T. (Hz):     czułość ~ 10^-15 -> MARGINAL")
+print(f"  LISA (mHz):           sensitivity ~ 10^-12 -> DETECTABLE!")
+print(f"  Einstein T. (Hz):     sensitivity ~ 10^-15 -> MARGINAL")
 print(f"\nOmega_GW (r=0.004, PIII) = {Omega_GW_attractor:.2e}")
 print(f"  LISA:                 trudne")
 print(f"  Einstein T.:          możliwe")
@@ -227,7 +227,7 @@ print(f"  nT (PII)              = {-r/8:.4f}")
 print(f"  nT (α-attractor)      = {-r_attractor/8:.4f}")
 
 # =================================================================
-#  8. PODSUMOWANIE - pełna macierz predykcji
+#  8. PODSUMOWANIE - full macierz predykcji
 # =================================================================
 print("\n" + "="*72)
 print(" PEŁNA MACIERZ PREDYKCJI (Raport I + Pub. I + Pub. II)")
