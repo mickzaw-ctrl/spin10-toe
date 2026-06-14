@@ -21,8 +21,8 @@ print("="*72)
 print(" KATEGORIA 1: TESTY KRYTYCZNE (★★★★★)")
 print("="*72)
 
-# 1.1 f_NL equilateral
-print("\n[1.1] f_NL^equilateral w CMB-S4 (2035)")
+# 1.1 f_NL equiyearseral
+print("\n[1.1] f_NL^equiyearseral w CMB-S4 (2035)")
 f_NL_eq = 14.518
 f_NL_eq_CMB_S4_sigma = 1.0
 SNR_f_NL = f_NL_eq / f_NL_eq_CMB_S4_sigma
@@ -43,7 +43,7 @@ print(f"  Peak:                  Ω_GW^max = 5.18e-7")
 print(f"  Struktura:             inflacja + GUT + Bounce")
 
 # 1.3 B_TTB
-print("\n[1.3] B_TTB (CP violation) w LiteBIRD (2030)")
+print("\n[1.3] B_TTB (CP vioyearsion) w LiteBIRD (2030)")
 r_pred = 12 * alpha_attractor / N_efolds**2  # 0.0125
 r_LiteBIRD_sens = 1e-3
 SNR_r = r_pred / r_LiteBIRD_sens
@@ -76,7 +76,7 @@ Omega_a = 0.12
 print(f"  Spin(10):              m_a = {m_a*1e9:.1f} neV")
 print(f"  Spin(10):              f_a = M_GUT = {f_a:.0e} GeV")
 print(f"  Spin(10):              Ω_a h² = {Omega_a}")
-print(f"  CASPEr zakres:         peV - neV ✓ W ZASIĘGU")
+print(f"  CASPEr range:         peV - neV ✓ W ZASIĘGU")
 print(f"  Status:                α Spin(10) ≠ KSVZ/DFSZ")
 
 # 2.2 Wald entropy
@@ -88,7 +88,7 @@ print(f"  Spin(10):              S_Wald = {S_Wald}")
 print(f"  Spin(10):              S_BH = {S_BH}")
 print(f"  Korekta QG:            {Wald_corr:.2f}%")
 print(f"  Skala:                 √N -> istotne przy N=10^6")
-print(f"  Detekcja:              BH merger ringdown (LIGO/Virgo/ET)")
+print(f"  Detection:              BH merger ringdown (LIGO/Virgo/ET)")
 
 # 2.3 Proton decay
 print("\n[2.3] Proton decay w Hyper-K (2027+)")
@@ -97,11 +97,11 @@ tau_p_nu_K = 1.4e36  # lat
 SK_limit = 1.6e34
 HK_2030_sens = 1e35
 HK_2040_sens = 1e36
-print(f"  Spin(10):              τ(p->e+π⁰) = {tau_p_e_pi0:.1e} lat")
-print(f"  Spin(10):              τ(p->ν̄K⁺) = {tau_p_nu_K:.1e} lat")
-print(f"  SK limit:              > {SK_limit:.1e} lat")
-print(f"  HK 2030:               ~ {HK_2030_sens:.0e} lat")
-print(f"  HK 2040:               ~ {HK_2040_sens:.0e} lat")
+print(f"  Spin(10):              τ(p->e+π⁰) = {tau_p_e_pi0:.1e} years")
+print(f"  Spin(10):              τ(p->ν̄K⁺) = {tau_p_nu_K:.1e} years")
+print(f"  SK limit:              > {SK_limit:.1e} years")
+print(f"  HK 2030:               ~ {HK_2030_sens:.0e} years")
+print(f"  HK 2040:               ~ {HK_2040_sens:.0e} years")
 print(f"  Status:                TESTABLE - blisko progu")
 
 # =================================================================
@@ -122,10 +122,10 @@ print(f"  SNR:                   {SNR_r:.1f}σ")
 
 # 3.3 Bispectrum kształt
 print("\n[3.3] Bispectrum kształt w CMB-S4 (2035)")
-print(f"  Spin(10):              70% equilateral + 30% local")
+print(f"  Spin(10):              70% equiyearseral + 30% local")
 print(f"  f_NL^local:            0.014")
 print(f"  f_NL^equil:            14.5 (dominuje)")
-print(f"  Detekcja:              kształt bispektrum")
+print(f"  Detection:              kształt bispektrum")
 
 # 3.4 Resonant leptogenesis
 print("\n[3.4] Resonant leptogenesis @ 1 TeV w LHC (2027+)")
@@ -212,7 +212,7 @@ print(f"  Exp (T2K):             δ_CP ~ {delta_CP_exp}°")
 print("\n[4.4] CMB circles w LiteBIRD (2030)")
 A_circles = 1.31e-6
 print(f"  Spin(10):              A ~ {A_circles:.2e}")
-print(f"  Detekcja:              multipole l<10")
+print(f"  Detection:              multipole l<10")
 print(f"  Status:                SEARCHABLE")
 
 # 4.5 LIV
@@ -221,7 +221,7 @@ LIV = 1e-4
 limit_LIV = 1e-15
 print(f"  Spin(10):              (1-CF)*1e-3 ~ {LIV:.1e}")
 print(f"  Obecna granica:        < {limit_LIV:.0e}")
-print(f"  Model predykcja:       opoznienia ~ 10 ms")
+print(f"  Model prediction:       opoznienia ~ 10 ms")
 
 # 4.6 DM
 print("\n[4.6] Ciemna materia w XENONnT (2030)")
@@ -254,7 +254,7 @@ print("\n[5.1] Stozki swietlne - hierarchy test")
 print(f"  Spin(10):              forward > backward")
 print(f"  Strzalka czasu:        |J(p)| = {0.738}/2 N")
 
-print("\n[5.2] CP+T asymetria")
+print("\n[5.2] CP+T asymmetry")
 A_CPT = 1 - 2 * 0.262
 print(f"  Spin(10):              A_CPT = {A_CPT:.3f}")
 
@@ -326,7 +326,7 @@ print("\n[7.4] a_4 anomaly ⚠️")
 a_4 = -6.23
 print(f"  Spin(10):              a_4 = {a_4}")
 print(f"  Wymaga:                anulacja")
-print(f"  Remedium:              6 dodatkowych sektorów skalarnych")
+print(f"  Remedium:              6 dodatkowych sektorów scalernych")
 
 print("\n[7.5] Holografia 67% ⚠️")
 print(f"  Spin(10) N=120:        67% czasu")
@@ -336,7 +336,7 @@ print(f"  Remedium:              N=10^6 -> >90%")
 #  PODSUMOWANIE ILOŚCIOWE
 # =================================================================
 print("\n" + "="*72)
-print(" PODSUMOWANIE ILOŚCIOWE TESTÓW")
+print(" QUANTITATIVE TESTS SUMMARY")
 print("="*72)
 
 categories = {
@@ -364,7 +364,7 @@ print("\n" + "="*72)
 print(" SCENARIUSZE FALSYFIKACJI")
 print("="*72)
 
-print("\nModel OBALONY jeśli JEDNOCZEŚNIE:")
+print("\nModel FALSIFIED if SIMULTANEOUSLY:")
 print("  ✗ Hyper-K NIE widzi proton decay do 1e35 (2035)")
 print("  ✗ CMB-S4 mierzy f_NL^eq < 5 (2035)")
 print("  ✗ LISA NIE widzi SGWB > 1e-13 (2035)")
@@ -372,7 +372,7 @@ print("  ✗ LiteBIRD mierzy B_TTB = 0 (2030)")
 print("  ✗ CASPEr NIE widzi axion 28 neV (2030)")
 print("  ✗ HL-LHC NIE widzi SUSY do 6 TeV (2035)")
 
-print("\nModel POTWIERDZONY jeśli JEDNOCZEŚNIE:")
+print("\nModel CONFIRMED if SIMULTANEOUSLY:")
 print("  ✓ Hyper-K widzi proton decay τ~1e36 (2035)")
 print("  ✓ CMB-S4 mierzy f_NL^eq = 14.5 ± 2 (2035)")
 print("  ✓ LISA widzi SGWB Ω~1e-7 @ 1 mHz (2035)")
