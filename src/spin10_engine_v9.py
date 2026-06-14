@@ -10,7 +10,7 @@ Nowe moduły:
   - Torsja jako 5. siła
   - Asymptotic Safety UV fixed point
 
-Stan: Spin(10) ToE v8.0 -> v9.0 z pełną heptalogią
+Status: Spin(10) ToE v8.0 -> v9.0 with full heptalogy
 """
 
 # Import z poprzedniej wersji
@@ -47,7 +47,7 @@ class MultiBounceModule:
     @staticmethod
     def entanglement_entropy(N_cycles: int, n_fields: int = 45) -> float:
         """
-        Entropia splątania między cyklami.
+        Entanglement entropy between cycles.
         S_ent = N · ln(n_fields)
         """
         return N_cycles * np.log(n_fields)
@@ -82,7 +82,7 @@ class TwoLoopRGEModule:
     """
     Moduł B: 2-loop RGE z SUSY threshold corrections (Publ. VII)
     
-    Pełna unifikacja sprzężeń w Spin(10) SUSY.
+    Full coupling unification in Spin(10) SUSY.
     """
     
     @staticmethod
@@ -118,7 +118,7 @@ class TwoLoopRGEModule:
         # M_GUT z unifikacji
         M_GUT = 2.0e16  # GeV (z unifikacji)
         
-        # Sprzężenia zunifikowane
+        # Unified couplings
         alpha_GUT_inv = 24.0
         
         return {
@@ -178,14 +178,14 @@ class SGWBNonGaussianityModule:
                 'Slow-roll': 0,
                 'Spin(10) α-att': f_NL,
                 'DBI': 35,
-                'Ghost inflation': 50,
+                'Ghost infyearsion': 50,
             }
         }
 
 
 class TorsionFifthForceModule:
     """
-    Moduł D: Torsja jako 5. siła (Publ. VII)
+    Module D: Torsion as 5th Force (Publ. VII)
     
     Modyfikacja potencjału Newtona z polem torsji Spin(10).
     """
@@ -409,7 +409,7 @@ class SHZSpin10QuantumEngineV9(SHZSpin10QuantumEngine):
 # ============================================================================
 
 def demo_v9():
-    """Demonstracja silnika Spin(10) v9.0"""
+    """Demonstracja engine Spin(10) v9.0"""
     
     print("="*70)
     print(" SHZSpin10QuantumEngine v9.0 - HEPTALOG")
@@ -455,7 +455,7 @@ def demo_v9():
     print(f"  Planck distance: {as_['n_s_sigma']:.2f}σ")
     
     print("\n" + "="*70)
-    print(" HEPTALOG - 7 PUBLIKACJI KOMPLETNE")
+    print(" HEPTALOG - 7 PUBLICATIONS KOMPLETNE")
     print("="*70)
     print("\n1. Raport I     (v1.0) Pre-geometria")
     print("2. Publ. I      (v2.0) Lorentz + Big Bounce")
