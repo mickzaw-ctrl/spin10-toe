@@ -65,12 +65,12 @@ tau_e_pi0 = tau_proton('e_pi0')
 tau_nu_K  = tau_proton('nu_K')
 
 print(f"f_top (czynnik topol.)   = {f_top:.3f}")
-print(f"tau(p -> e+ pi0)         = {tau_e_pi0:.2e} lat")
-print(f"  current limit (SK):    > 2.4e34 lat  [1]")
-print(f"  Hyper-K czułość 2030:  ~ 1e35  -> TESTABLE w ciągu 10-15 lat")
-print(f"tau(p -> nu_bar K+)      = {tau_nu_K:.2e} lat")
-print(f"  current limit (SK):    > 5.9e33 lat")
-print(f"  Hyper-K czułość:       ~ 3e34 -> TESTABLE")
+print(f"tau(p -> e+ pi0)         = {tau_e_pi0:.2e} years")
+print(f"  current limit (SK):    > 2.4e34 years  [1]")
+print(f"  Hyper-K sensitivity 2030:  ~ 1e35  -> TESTABLE within 10-15 years")
+print(f"tau(p -> nu_bar K+)      = {tau_nu_K:.2e} years")
+print(f"  current limit (SK):    > 5.9e33 years")
+print(f"  Hyper-K sensitivity:       ~ 3e34 -> TESTABLE")
 
 # =================================================================
 #  2. PODWÓJNY ROZPAD BETA (0vbb) - Majorana mass
@@ -102,7 +102,7 @@ print("="*65)
 # W Spin(10) SUSY, LFV z pętli sleptonowych
 # BR(mu -> e gamma) ~ (alpha/4 pi) * (m_mu^2/M_SUSY^2) * |delta_LL|^2
 # |delta_LL| ~ (3 m_top^2/(8 pi^2 v^2)) * A_0 * log(M_GUT/M_SUSY) * (Y_u^+ Y_u)
-# Typowa predykcja SUSY GUT: 10^-12 do 10^-14
+# Typowa prediction SUSY GUT: 10^-12 do 10^-14
 M_SUSY = 1.0e3     # GeV, skala SUSY
 v_EW = 246.0       # GeV
 
@@ -112,7 +112,7 @@ delta_LL = eps_F * (m_top/v_EW) * math.log(M_GUT_eff/M_SUSY)
 
 BR_mu_e_gamma = (alpha_em/(4*math.pi)) * (m_mu**2/M_SUSY**2) * delta_LL**2
 
-print(f"M_SUSY                   = {M_SUSY:.0e} GeV (założenie)")
+print(f"M_SUSY                   = {M_SUSY:.0e} GeV (assumption)")
 print(f"|delta_LL| (Y_nu flavor) = {delta_LL:.3f}")
 print(f"BR(mu -> e gamma)        = {BR_mu_e_gamma:.2e}")
 print(f"  current limit (MEG 2016):  < 4.3e-13")
@@ -181,15 +181,15 @@ print(f"M_DM (N_R w ukrytym 16)  = {M_DM_GeV:.2e} GeV")
 print(f"  Typ:                    WIMP-like (zimna ciemna materia)")
 print(f"  <sigma*v> anihilacji:   ~ 3e-26 cm^3/s (termiczny relic)")
 print(f"  Detekcja:")
-print(f"    bezpośrednia:         XENONnT, LZ, DARWIN")
-print(f"    pośrednia:            CTA, IceCube")
+print(f"    bezpomedium:         XENONnT, LZ, DARWIN")
+print(f"    pomedium:            CTA, IceCube")
 print(f"    W zasięgu:            XENONnT do 2030")
 
 # =================================================================
 #  7. INFLACJA z Var(k) reduction
 # =================================================================
 print("\n" + "="*65)
-print(" 7. INFLACJA - Var(k) jako inflaton")
+print(" 7. INFLACJA - Var(k) jako infyearson")
 print("="*65)
 
 Var_init = 3.467
@@ -239,10 +239,10 @@ print("="*65)
 t_star = k_mean**2  # w t_Planck
 print(f"t_* (crossover scale)    = {t_star} t_Planck")
 print(f"                        = {t_star * 5.4e-44:.2e} s")
-print(f"  Test: opóźnienia czasowe w fotonach GRB o wysokiej E")
+print(f"  Test: time delays in high-E GRB photons")
 print(f"  Obecna granica (Fermi-LAT):  |dt/t| < 10^-15")
-print(f"  Model predykcja:        modyfikacja dyspersji rzędu 10^-2 ms")
-print(f"  Detektory:              Fermi-LAT, CTA, LHAASO")
+print(f"  Model prediction:        modyfikacja dyspersji rzędu 10^-2 ms")
+print(f"  Detectory:              Fermi-LAT, CTA, LHAASO")
 
 # =================================================================
 #  9. PODSUMOWANIE - macierz testowalnosci
@@ -252,8 +252,8 @@ print(" PODSUMOWANIE - macierz testowalności predykcji")
 print("="*72)
 print(f"{'Predykcja':<28} | {'Model':<18} | {'Eksperyment':<18} | {'Okno':<10}")
 print("-"*72)
-print(f"{'tau(p->e+pi0) [lat]':<28} | {tau_e_pi0:.2e}   | Hyper-K 2027+     | 2030-2040")
-print(f"{'tau(p->nu K+) [lat]':<28} | {tau_nu_K:.2e}    | Hyper-K/JUNO      | 2027-2035")
+print(f"{'tau(p->e+pi0) [years]':<28} | {tau_e_pi0:.2e}   | Hyper-K 2027+     | 2030-2040")
+print(f"{'tau(p->nu K+) [years]':<28} | {tau_nu_K:.2e}    | Hyper-K/JUNO      | 2027-2035")
 print(f"{'m_bb [meV]':<28} | {m_bb_meV:.1f}              | LEGEND-1000       | 2028-2035")
 print(f"{'BR(mu->e gamma)':<28} | {BR_mu_e_gamma:.2e}   | MEG-II/Mu3e       | 2026-2030")
 print(f"{'sin^2 theta_13':<28} | {sin_th13_model**2:.4f}            | DUNE/JUNO         | 2028-2032")
@@ -267,14 +267,14 @@ print("="*72)
 # =================================================================
 # 10. KONKLUZJA - falsyfikowalnosc
 # =================================================================
-print("\nFALSYFIKOWALNOŚĆ:")
+print("\nFALSIFIABILITY:")
 print("  Model przewiduje JEDNOCZEŚNIE:")
-print(f"    - rozpad protonu ~ {tau_e_pi0:.1e} lat (tuż powyżej SK)")
+print(f"    - proton decay ~ {tau_e_pi0:.1e} years (just above SK)")
 print(f"    - theta_13 = {sin_th13_model**2:.4f} (vs 0.0220 eksperyment)")
 print(f"    - BR(mu->e gamma) ~ {BR_mu_e_gamma:.1e}")
 print(f"    - r = {r_quad:.4f}, n_s = {n_s:.4f}")
-print(f"\n  JESLI w ciągu 15 lat:")
-print(f"    - Hyper-K NIE zobaczy rozpadu protonu do 1e35 lat  -> FALSYFIKACJA")
+print(f"\n  JESLI within 15 years:")
+print(f"    - Hyper-K NIE zobaczy rozpadu protonu do 1e35 years  -> FALSYFIKACJA")
 print(f"    - MEG-II NIE zobaczy mu->e gamma do 1e-13           -> FALSYFIKACJA")
 print(f"    - DUNE zmierzy theta_13 spoza 0.005-0.040            -> FALSYFIKACJA")
 print(f"    - CMB-S4 zmierzy r spoza 0.05-0.20                   -> FALSYFIKACJA")
