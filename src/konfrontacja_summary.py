@@ -41,7 +41,7 @@ experiments = [
         "name": "Hyper-K",
         "year": 2027,
         "status": "future",
-        "predictions": ["tau_p = 4.9e36 lat"],
+        "predictions": ["tau_p = 4.9e36 years"],
         "critical": "★★",
         "snr": "blisko progu",
         "result": "TESTABLE 2030-2040",
