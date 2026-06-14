@@ -62,7 +62,7 @@ N_cycles_needed = 60.0 / N_efolds_one
 print(f"Cykli dla N_e=60         = {N_cycles_needed:.1f}")
 print(f"  Wniosek: ~{N_cycles_needed:.0f} cykli Big Bounce daje wymagana inflacje")
 
-# Cumulative efolds
+# Cumuyearsive efolds
 total_efolds_60_cycles = 60 * N_efolds_one
 print(f"Total efolds (60 cycles) = {total_efolds_60_cycles:.1f}")
 
@@ -114,7 +114,7 @@ print(f"  W pelnej Lorentz:      -> 0 (CF->1)")
 
 # Opoznienia w GRB
 GRB_lag_ms = (1-CF) * 10  # crude
-print(f"GRB time-lag predykcja   ~ {GRB_lag_ms:.2f} ms (dla E~10 GeV)")
+print(f"GRB time-lag prediction   ~ {GRB_lag_ms:.2f} ms (dla E~10 GeV)")
 print(f"  Ferm-LAT limit:        < 10 ms  -> TESTABLE")
 print(f"  CTA (future):          sigma ~ 0.1 ms -> BARDZO TESTABLE")
 
@@ -132,7 +132,7 @@ print(f"|J(p)|_backward          ~ {(1-CF)/2:.3f} N")
 print(f"  Hierarchia: forward >> backward (strzalka czasu)")
 
 # Test
-print(f"\nTest (porownanie z symulacja):")
+print(f"\nTest (porownanie z simuyearsion):")
 print(f"  Sorkin 'order + number': V_4D = N_count, metryka Lorentzowska")
 print(f"  Sprawdzian: |J(p)| ~ t (linearnie w layer)")
 
@@ -146,7 +146,7 @@ print("="*65)
 A_CPT = 1 - 2*Var_k
 print(f"A_CPT (forward-backward) = {A_CPT:.3f}")
 print(f"  Stosunek forward:backward = {CF:.3f}:{1-CF:.3f}")
-print(f"  Wniosek: istotna asymetria sieci (emergent CPT violation)")
+print(f"  Wniosek: istotna asymmetry sieci (emergent CPT vioyearsion)")
 
 # =================================================================
 #  7. ROZPAD PROTONU - poprawka Lorentz
@@ -163,10 +163,10 @@ tau_e_pi0_L = tau_e_pi0 * (1 + (1-CF_factor)/10)
 tau_nu_K = 5.0e35 * cos_Phi**(-4) * f_top**(-2)
 tau_nu_K_L = tau_nu_K * (1 + (1-CF_factor)/10)
 
-print(f"tau(p->e+pi0) Euclides   = {tau_e_pi0:.2e} lat")
-print(f"tau(p->e+pi0) Lorentz    = {tau_e_pi0_L:.2e} lat (+{(1-CF_factor)/10*100:.1f}%)")
-print(f"tau(p->nu K+) Euclides   = {tau_nu_K:.2e} lat")
-print(f"tau(p->nu K+) Lorentz    = {tau_nu_K_L:.2e} lat")
+print(f"tau(p->e+pi0) Euclides   = {tau_e_pi0:.2e} years")
+print(f"tau(p->e+pi0) Lorentz    = {tau_e_pi0_L:.2e} years (+{(1-CF_factor)/10*100:.1f}%)")
+print(f"tau(p->nu K+) Euclides   = {tau_nu_K:.2e} years")
+print(f"tau(p->nu K+) Lorentz    = {tau_nu_K_L:.2e} years")
 print(f"  Hyper-K czulosc (2030): ~1e35 -> TESTABLE")
 
 # =================================================================
@@ -189,10 +189,10 @@ print(f"  Wniosek: Lorentz CF redukuje theta_13, ale nadal za male")
 print(f"          Potrzebne dodatkowe poprawki (flavon moduli, instantons)")
 
 # =================================================================
-#  9. MODULACJA G_N na skali Plancka
+#  9. MODULACJA G_N na scale Plancka
 # =================================================================
 print("\n" + "="*65)
-print(" 9. MODULACJA G_N na skali Plancka")
+print(" 9. MODULACJA G_N na scale Plancka")
 print("="*65)
 
 print(f"delta G_N / G_N          = Var(k) * exp(-t/t_Planck)")
@@ -201,7 +201,7 @@ print(f"  Decay time:             ~ t_Planck = {5.4e-44:.2e} s")
 print(f"  Test: eksperymenty sub-mm (Eot-Wash, IUPUI)")
 
 # =================================================================
-#  10. PODSUMOWANIE - wszystkie predykcje
+#  10. PODSUMOWANIE - wszystkie predictions
 # =================================================================
 print("\n" + "="*72)
 print(" PELNA MACIERZ PREDYKCJI (Raport I + Publikacja I)")
@@ -210,9 +210,9 @@ print(f"{'Predykcja':<30} | {'Model':<14} | {'Eksperyment':<18} | Status")
 print("-"*72)
 print(f"{'Λ_Euclidean':<30} | {Lambda_Euclidean:.4f}        | theory              | -")
 print(f"{'Λ_Lorentz (eq)':<30} | {Lambda_Lorentz_eq:.4f}        | theory              | -")
-print(f"{'tau(p->e+pi0) [lat]':<30} | {tau_e_pi0_L:.2e}   | Hyper-K 2027+     | TESTABLE")
-print(f"{'tau(p->nu K+) [lat]':<30} | {tau_nu_K_L:.2e}    | Hyper-K/JUNO      | TESTABLE")
-print(f"{'N_efolds (cumulative)':<30} | {total_efolds_60_cycles:.1f}        | CMB-S4             | ~60 ✓")
+print(f"{'tau(p->e+pi0) [years]':<30} | {tau_e_pi0_L:.2e}   | Hyper-K 2027+     | TESTABLE")
+print(f"{'tau(p->nu K+) [years]':<30} | {tau_nu_K_L:.2e}    | Hyper-K/JUNO      | TESTABLE")
+print(f"{'N_efolds (cumuyearsive)':<30} | {total_efolds_60_cycles:.1f}        | CMB-S4             | ~60 ✓")
 print(f"{'n_s':<30} | {n_s:.4f}        | CMB-S4             | ✓")
 print(f"{'r':<30} | {r_quad:.4f}        | CMB-S4             | TESTABLE")
 print(f"{'CMB circles amplitude':<30} | {A_circles:.2e}   | Planck/LiteBIRD    | SEARCHABLE")
