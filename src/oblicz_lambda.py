@@ -20,7 +20,7 @@ alpha        = 1.0            # kara topologiczna (parametr modelu)
 g2           = 1.0            # sprzezenie YM (Spin(10) ~ unitarne w tych jedn.)
 a            = 1.0            # krok sieci (w jednostkach a; fizycznie ~ l_P)
 
-# Obserwable z symulacji
+# Obserwable z simuyearsion
 W_eq         = 0.688          # <W> = <cos Phi_plakiett>
 Var_k_eq     = 0.262          # wariancja stopni w equilibrium
 
@@ -42,7 +42,7 @@ eps_top = (alpha / a**4) * Var_k_eq
 eps_vac = eps_YM + eps_top
 
 # ---------------------------------------------------------------------------
-# 4.  Lambda efektywna
+# 4.  Lambda effective
 # ---------------------------------------------------------------------------
 Lambda_eff = 8.0 * math.pi * G_N * eps_vac
 
