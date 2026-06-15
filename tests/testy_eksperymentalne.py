@@ -21,8 +21,8 @@ print("="*72)
 print(" KATEGORIA 1: TESTY KRYTYCZNE (★★★★★)")
 print("="*72)
 
-# 1.1 f_NL equiyearseral
-print("\n[1.1] f_NL^equiyearseral w CMB-S4 (2035)")
+# 1.1 f_NL equilateral
+print("\n[1.1] f_NL^equilateral w CMB-S4 (2035)")
 f_NL_eq = 14.518
 f_NL_eq_CMB_S4_sigma = 1.0
 SNR_f_NL = f_NL_eq / f_NL_eq_CMB_S4_sigma
@@ -43,7 +43,7 @@ print(f"  Peak:                  Ω_GW^max = 5.18e-7")
 print(f"  Struktura:             inflacja + GUT + Bounce")
 
 # 1.3 B_TTB
-print("\n[1.3] B_TTB (CP vioyearsion) w LiteBIRD (2030)")
+print("\n[1.3] B_TTB (CP violation) w LiteBIRD (2030)")
 r_pred = 12 * alpha_attractor / N_efolds**2  # 0.0125
 r_LiteBIRD_sens = 1e-3
 SNR_r = r_pred / r_LiteBIRD_sens
@@ -122,7 +122,7 @@ print(f"  SNR:                   {SNR_r:.1f}σ")
 
 # 3.3 Bispectrum kształt
 print("\n[3.3] Bispectrum kształt w CMB-S4 (2035)")
-print(f"  Spin(10):              70% equiyearseral + 30% local")
+print(f"  Spin(10):              70% equilateral + 30% local")
 print(f"  f_NL^local:            0.014")
 print(f"  f_NL^equil:            14.5 (dominuje)")
 print(f"  Detection:              kształt bispektrum")
