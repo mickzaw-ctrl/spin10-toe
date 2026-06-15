@@ -341,15 +341,29 @@ class Spin10Observables:
         return np.log(N) / np.log(np.sqrt(N)) if N > 1 else 1.0
     
     @staticmethod
-    def spectral_dimension(graph: Spin10Graph, t_range=None) -> Tuple[float, float]:
+    def spectral_dimension(graph: Spin10Graph, t_range=None, method='auto') -> Tuple[float, float]:
         """
-        Wymiar spektralny d_S(t) = -2 * d(log P_0)/d(log t)
+        Wymiar spektralny d_S(t) = -2 * d(log P_0)/d(log t).
         Zwraca (d_S_UV, d_S_IR) — plateau na UV i IR.
+        Wykorzystuje nową, ultraszybką metodę Lazy Random Walk (z modułu spectral_dimension_random_walk)
+        dla grafów N >= 150 lub gdy method=='random_walk'.
         """
         if graph.G.number_of_nodes() < 3:
             return (1.0, 1.0)
-        
-        # Buduj Laplace'a
+            
+        N = graph.G.number_of_nodes()
+        if method == 'random_walk' or (method == 'auto' and N >= 150):
+            try:
+                from spectral_dimension_random_walk import RandomWalkSpectralDimension
+                t_vals, probs, d_S = RandomWalkSpectralDimension.exact_spectral_dimension_random_walk(
+                    graph.G, max_steps=min(150, int(N*0.8)), num_walkers=min(20000, N*50), lazy_prob=0.5
+                )
+                plat = RandomWalkSpectralDimension.compute_spectral_plateaux(t_vals, d_S, N_nodes=N)
+                return (plat['d_S_UV'], plat['d_S_IR_numeric'])
+            except Exception as e:
+                warnings.warn(f"RandomWalkSpectralDimension failed: {e}. Falling back to Laplacian.")
+
+        # Buduj Laplace'a (dla małych grafów)
         L = nx.laplacian_matrix(graph.G).astype(float)
         # Add small offset for stability
         L = L + 1e-10 * sparse.eye(L.shape[0])
@@ -369,11 +383,9 @@ class Spin10Observables:
                 return (1.0, 2.0)
             
             # d_S at small t (UV) and large t (IR)
-            # Przybliżenie: d_S ~ 2 * d(log return_prob)/d(log t)
             t_small = eigenvalues[:max(1, len(eigenvalues)//4)]
-            t_large = eigenvalues[-max(1, len(eigenvalues)//4):]
             
-            # Pyearseaux
+            # Plateaux
             d_S_UV = 2.0 if len(t_small) > 1 else 1.0
             d_S_IR = 4.0 * (1 - np.exp(-graph.N / 150))  # formula z remedium
             
@@ -790,7 +802,7 @@ class Spin10Tests:
     def run_all_tests(cls) -> Dict[str, Any]:
         """Uruchom wszystkie testy"""
         return {
-            'infyearsion_n_s_r': cls.test_infyearsion_plank_bicep(),
+            'inflation_n_s_r': cls.test_inflation_plank_bicep(),
             'SGWB_LISA': cls.test_sgwb_vs_LISA(),
             'f_NL_CMB_S4': cls.test_f_NL_vs_CMB_S4(),
             'axion_CASPEr': cls.test_axion_vs_CASPEr(),
@@ -845,7 +857,7 @@ class SHZSpin10QuantumEngine:
         Wzorowane na Raporcie I.
         """
         if verbose:
-            print(f"Start simuyearsion: N={self.N}, n_steps={n_steps}")
+            print(f"Start simulation: N={self.N}, n_steps={n_steps}")
             print(f"Początkowe Var(k) = {self.graph.degree_variance():.3f}")
         
         for step in range(n_steps):
@@ -870,7 +882,7 @@ class SHZSpin10QuantumEngine:
             print(f"Symulacja zakończona. Final Var(k) = {self.graph.degree_variance():.3f}")
     
     def compute_observables(self) -> Dict[str, float]:
-        """Computes wszystkie obserwable z simuyearsion"""
+        """Computes wszystkie obserwable z simulation"""
         d_S_UV, d_S_IR = Spin10Observables.spectral_dimension(self.graph)
         return {
             'Var_k': self.graph.degree_variance(),
@@ -888,10 +900,10 @@ class SHZSpin10QuantumEngine:
         return {
             'Lambda': Spin10Predictions.cosmological_constant(self.graph, with_remedies),
             'N_generations': Spin10Predictions.three_generations_index(self.graph),
-            'infyearsion': Spin10Predictions.infyearsion_spectrum(),
+            'inflation': Spin10Predictions.inflation_spectrum(),
             'SGWB_peak': 5.18e-7,
             'SGWB_LISA_freq': Spin10Predictions.sgwb_spectrum(1e-3),
-            'f_NL_equil': Spin10Predictions.f_NL_equiyearseral(),
+            'f_NL_equil': Spin10Predictions.f_NL_equilateral(),
             'axion': Spin10Predictions.axion_mass(),
             'proton_decay': Spin10Predictions.proton_decay_branch(with_susy=True),
             'baryon_asymmetry': Spin10Predictions.baryon_asymmetry(with_remedies),
@@ -907,10 +919,10 @@ class SHZSpin10QuantumEngine:
         return Spin10Tests.run_all_tests()
     
     def full_report(self) -> Dict[str, Any]:
-        """Pełny raport: simuyearsion + obserwable + predictions + testy + remedies"""
+        """Pełny raport: simulation + obserwable + predictions + testy + remedies"""
         return {
             'engine_version': 'SHZSpin10QuantumEngine v8.0',
-            'simuyearsion_history': self.history,
+            'simulation_history': self.history,
             'observables': self.compute_observables(),
             'predictions': self.compute_predictions(),
             'remedies': self.apply_remedies(),
@@ -953,7 +965,7 @@ def demo():
     
     print(f"   N_generations = {pred['N_generations']} (topologiczne)")
     print(f"   Λ = {pred['Lambda']['Lambda_Lor']:.4f} (emergentna)")
-    print(f"   n_s = {pred['infyearsion']['n_s']:.4f}, r = {pred['infyearsion']['r']:.4f}")
+    print(f"   n_s = {pred['inflation']['n_s']:.4f}, r = {pred['inflation']['r']:.4f}")
     print(f"   f_NL^equil = {pred['f_NL_equil']:.4f}")
     print(f"   SGWB(1mHz) = {pred['SGWB_LISA_freq']:.2e}")
     print(f"   Axion m_a = {pred['axion']['m_a_neV']:.1f} neV")
@@ -975,7 +987,7 @@ def demo():
     print("\n6. TESTY EKSPERYMENTALNE")
     tests = engine.run_tests()
     
-    print(f"   Inflacja: n_s = {tests['infyearsion_n_s_r']['n_s_sigma']:.2f}σ, r OK = {tests['infyearsion_n_s_r']['r_passes']}")
+    print(f"   Inflacja: n_s = {tests['inflation_n_s_r']['n_s_sigma']:.2f}σ, r OK = {tests['inflation_n_s_r']['r_passes']}")
     print(f"   SGWB LISA: {tests['SGWB_LISA']['decades_above']:.1f} dekad powyżej szumu")
     print(f"   f_NL CMB-S4: {tests['f_NL_CMB_S4']['SNR']:.1f}σ")
     print(f"   Axion CASPEr: in range = {tests['axion_CASPEr']['in_CASPEr_range']}")
