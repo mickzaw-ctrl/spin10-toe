@@ -20,7 +20,7 @@ alpha        = 1.0            # kara topologiczna (parametr modelu)
 g2           = 1.0            # sprzezenie YM (Spin(10) ~ unitarne w tych jedn.)
 a            = 1.0            # krok sieci (w jednostkach a; fizycznie ~ l_P)
 
-# Obserwable z simuyearsion
+# Obserwable z simulation
 W_eq         = 0.688          # <W> = <cos Phi_plakiett>
 Var_k_eq     = 0.262          # wariancja stopni w equilibrium
 
