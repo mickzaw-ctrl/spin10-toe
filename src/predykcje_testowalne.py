@@ -189,7 +189,7 @@ print(f"    W zasięgu:            XENONnT do 2030")
 #  7. INFLACJA z Var(k) reduction
 # =================================================================
 print("\n" + "="*65)
-print(" 7. INFLACJA - Var(k) jako infyearson")
+print(" 7. INFLACJA - Var(k) jako inflaton")
 print("="*65)
 
 Var_init = 3.467
