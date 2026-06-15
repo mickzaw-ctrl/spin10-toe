@@ -121,7 +121,7 @@ print("\n" + "="*65)
 print(" 3. ANOMALIA KONFOREMNA (Seeley-DeWitt)")
 print("="*65)
 
-# Szacowanie z simuyearsion
+# Szacowanie z simulation
 # C² ~ 1.3 (Weyl RMS z PII)
 # R² ~ 2.25 (R ~ -1.5, R² ~ 2.25)
 C_sq = 1.69    # RMS²
