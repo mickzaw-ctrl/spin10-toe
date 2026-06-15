@@ -162,7 +162,7 @@ Omega_peak = omega_gw_total(f_peak)
 Omega_max  = 5.18e-7
 
 print(f"Three SGWB sources:")
-print(f"  1. Inflacja α-att:  Ω_GW^inf ~ {omega_gw_infyearsion(1e-3):.2e} przy 1 mHz")
+print(f"  1. Inflacja α-att:  Ω_GW^inf ~ {omega_gw_inflation(1e-3):.2e} przy 1 mHz")
 print(f"  2. GUT Spin(10):    peak przy {100} Hz, Ω_GW^GUT ~ {omega_gw_gut(100):.2e}")
 print(f"  3. Big Bounce:      peak przy 1 mHz, Ω_GW^bounce ~ {omega_gw_bounce(1e-3):.2e}")
 
@@ -302,10 +302,10 @@ print("-"*72)
 print(f"{'Starobinsky R²':<25} | {1-2/60:<8.4f} | {12/60**2:<10.4f} | benchmark")
 print(f"{'α-att (α=1, Kallosh)':<25} | {1-2/60:<8.4f} | {12/60**2:<10.4f} | referencyjny")
 print(f"{'α-att Spin(10) α=3.75':<25} | {n_s_analytic:<8.4f} | {r_analytic:<10.4f} | NASZ MODEL")
-print(f"{'Natural infyearsion':<25} | 0.970    | 0.05     | wykluczone")
+print(f"{'Natural inflation':<25} | 0.970    | 0.05     | wykluczone")
 print(f"{'Axion monodromy':<25} | 0.97     | 0.01-0.07| marginalne")
 print(f"{'String landscape':<25} | 0.96     | <0.001   | zbyt małe r")
-print(f"{'Higgs infyearsion':<25} | 0.967    | 0.003    | OK ale Λ problem")
+print(f"{'Higgs inflation':<25} | 0.967    | 0.003    | OK ale Λ problem")
 print(f"{'Pub. II (Spin10)':<25} | 0.981    | 0.19     | ❌ (przed α-att)")
 print("="*72)
 
