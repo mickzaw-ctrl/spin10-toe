@@ -122,9 +122,9 @@ print(f"  f_NL^orth                = {f_NL_orth:.2e}")
 
 # Ksztalty
 print(f"\nKsztalt bispektrum:")
-print(f"  Spin(10): ~70% equiyearseral + 30% local")
+print(f"  Spin(10): ~70% equilateral + 30% local")
 print(f"  Slow-roll: ~czyste local (0.014)")
-print(f"  DBI: czyste equiyearseral (~35)")
+print(f"  DBI: czyste equilateral (~35)")
 print(f"  -> Spin(10) w sweet spot - specyficzna mieszanka")
 
 # Comparison z Planck
@@ -183,9 +183,9 @@ print("="*72)
 print(f"{'Model':<28} | {'f_NL^local':<14} | {'f_NL^equil':<14} | Status")
 print("-"*72)
 print(f"{'Slow-roll (Maldacena)':<28} | {0.014:<14.4f} | {0:<14.4f} | referencyjny")
-print(f"{'DBI infyearsion':<28} | {0:<14.4f} | {35:<14.4f} | (c_s^-2 duże)")
-print(f"{'Multi-field infyearsion':<28} | {10:<14.4f} | {5:<14.4f} | zależny")
-print(f"{'String infyearsion':<28} | {1:<14.4f} | {10:<14.4f} | model-zależny")
+print(f"{'DBI inflation':<28} | {0:<14.4f} | {35:<14.4f} | (c_s^-2 duże)")
+print(f"{'Multi-field inflation':<28} | {10:<14.4f} | {5:<14.4f} | zależny")
+print(f"{'String inflation':<28} | {1:<14.4f} | {10:<14.4f} | model-zależny")
 print(f"{'**Spin(10) α-att**':<28} | {f_NL_local:<14.4f} | {f_NL_equil:<14.4f} | **NASZ MODEL**")
 print("="*72)
 
@@ -209,7 +209,7 @@ print(f"{'η_B (leptogenesis)':<35} | {eta_B_lept:<14.2e} | obserwacja      | �
 print(f"{'ε_CP':<35} | {epsilon_CP:<14.2f} | (Sacharow)      | ✓")
 print(f"{'m_ν (seesaw)':<35} | {m_nu_eV:<14.3f} eV | Δm²_atm        | ✓")
 print(f"{'M_D (Dirac)':<35} | {M_D_Pl:<14.4e} M_Pl | GUT scale      | ✓")
-print(f"{'<ψ̄ψ> (kondensat)':<35} | {psi_psi_cond:<14.4f} | yearstice QCD     | ✓")
+print(f"{'<ψ̄ψ> (kondensat)':<35} | {psi_psi_cond:<14.4f} | lattice QCD     | ✓")
 print("="*72)
 
 # =================================================================
@@ -223,7 +223,7 @@ print("\n[TEST 1] f_NL^equil w CMB-S4 (2035)")
 print(f"  Predykcja Spin(10): {f_NL_equil}")
 print(f"  CMB-S4 sensitivity:    ~ 1")
 print(f"  SNR:               {SNR_equil:.2e}  >>  1")
-print(f"  Kształt:           70% equiyearseral + 30% local")
+print(f"  Kształt:           70% equilateral + 30% local")
 print(f"  → NAJSILNIEJSZY TEST W HISTORII MODELU SPIN(10)")
 
 print("\n[TEST 2] SGWB w LISA (2035)")
