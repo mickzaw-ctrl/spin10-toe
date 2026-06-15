@@ -62,7 +62,7 @@ N_cycles_needed = 60.0 / N_efolds_one
 print(f"Cykli dla N_e=60         = {N_cycles_needed:.1f}")
 print(f"  Wniosek: ~{N_cycles_needed:.0f} cykli Big Bounce daje wymagana inflacje")
 
-# Cumuyearsive efolds
+# Cumulative efolds
 total_efolds_60_cycles = 60 * N_efolds_one
 print(f"Total efolds (60 cycles) = {total_efolds_60_cycles:.1f}")
 
@@ -132,7 +132,7 @@ print(f"|J(p)|_backward          ~ {(1-CF)/2:.3f} N")
 print(f"  Hierarchia: forward >> backward (strzalka czasu)")
 
 # Test
-print(f"\nTest (porownanie z simuyearsion):")
+print(f"\nTest (porownanie z simulation):")
 print(f"  Sorkin 'order + number': V_4D = N_count, metryka Lorentzowska")
 print(f"  Sprawdzian: |J(p)| ~ t (linearnie w layer)")
 
@@ -146,7 +146,7 @@ print("="*65)
 A_CPT = 1 - 2*Var_k
 print(f"A_CPT (forward-backward) = {A_CPT:.3f}")
 print(f"  Stosunek forward:backward = {CF:.3f}:{1-CF:.3f}")
-print(f"  Wniosek: istotna asymmetry sieci (emergent CPT vioyearsion)")
+print(f"  Wniosek: istotna asymmetry sieci (emergent CPT violation)")
 
 # =================================================================
 #  7. ROZPAD PROTONU - poprawka Lorentz
@@ -212,7 +212,7 @@ print(f"{'Λ_Euclidean':<30} | {Lambda_Euclidean:.4f}        | theory           
 print(f"{'Λ_Lorentz (eq)':<30} | {Lambda_Lorentz_eq:.4f}        | theory              | -")
 print(f"{'tau(p->e+pi0) [years]':<30} | {tau_e_pi0_L:.2e}   | Hyper-K 2027+     | TESTABLE")
 print(f"{'tau(p->nu K+) [years]':<30} | {tau_nu_K_L:.2e}    | Hyper-K/JUNO      | TESTABLE")
-print(f"{'N_efolds (cumuyearsive)':<30} | {total_efolds_60_cycles:.1f}        | CMB-S4             | ~60 ✓")
+print(f"{'N_efolds (cumulative)':<30} | {total_efolds_60_cycles:.1f}        | CMB-S4             | ~60 ✓")
 print(f"{'n_s':<30} | {n_s:.4f}        | CMB-S4             | ✓")
 print(f"{'r':<30} | {r_quad:.4f}        | CMB-S4             | TESTABLE")
 print(f"{'CMB circles amplitude':<30} | {A_circles:.2e}   | Planck/LiteBIRD    | SEARCHABLE")
