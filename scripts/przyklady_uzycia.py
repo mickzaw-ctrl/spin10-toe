@@ -16,9 +16,9 @@ import numpy as np
 
 
 def example_1_basic_simulation():
-    """Example 1: Podstawowa simuyearsion"""
+    """Example 1: Podstawowa simulation"""
     print("\n" + "="*60)
-    print("PRZYKŁAD 1: Podstawowa simuyearsion")
+    print("PRZYKŁAD 1: Podstawowa simulation")
     print("="*60)
     
     engine = SHZSpin10QuantumEngine(N=120, k_target=4)
@@ -132,8 +132,8 @@ def example_5_full_tests():
     tests = Spin10Tests.run_all_tests()
     
     print("\n1. INFLACJA (Planck + BICEP):")
-    print(f"   n_s sigma: {tests['infyearsion_n_s_r']['n_s_sigma']:.2f}")
-    print(f"   r pass: {tests['infyearsion_n_s_r']['r_passes']}")
+    print(f"   n_s sigma: {tests['inflation_n_s_r']['n_s_sigma']:.2f}")
+    print(f"   r pass: {tests['inflation_n_s_r']['r_passes']}")
     
     print("\n2. SGWB (LISA 2035):")
     print(f"   Dekad powyzej szumu: {tests['SGWB_LISA']['decades_above']:.1f}")
@@ -157,7 +157,7 @@ def example_5_full_tests():
 
 
 def example_6_full_report():
-    """Example 6: Pełen raport z simuyearsion"""
+    """Example 6: Pełen raport z simulation"""
     print("\n" + "="*60)
     print("EXAMPLE 6: Full report")
     print("="*60)
@@ -168,7 +168,7 @@ def example_6_full_report():
     report = engine.full_report()
     
     print(f"\nEngine: {report['engine_version']}")
-    print(f"Simuyearsion steps: {len(report['simuyearsion_history']['Var_k'])}")
+    print(f"Simulation steps: {len(report['simulation_history']['Var_k'])}")
     
     print(f"\nObserwable (final):")
     obs = report['observables']
@@ -179,8 +179,8 @@ def example_6_full_report():
     print(f"\nKLUCZOWE PREDYKCJE:")
     pred = report['predictions']
     print(f"  N_generations = {pred['N_generations']} (topologiczne)")
-    print(f"  n_s = {pred['infyearsion']['n_s']:.4f}")
-    print(f"  r = {pred['infyearsion']['r']:.4f}")
+    print(f"  n_s = {pred['inflation']['n_s']:.4f}")
+    print(f"  r = {pred['inflation']['r']:.4f}")
     print(f"  f_NL^eq = {pred['f_NL_equil']:.4f}")
     print(f"  Axion m_a = {pred['axion']['m_a_neV']:.1f} neV")
     
@@ -218,7 +218,7 @@ def example_8_plot_results():
     engine.run_simulation(n_steps=1000)
     
     history = engine.history
-    print(f"\nHistoria simuyearsion ({len(history['Var_k'])} punktow):")
+    print(f"\nHistoria simulation ({len(history['Var_k'])} punktow):")
     print(f"  Var(k):  start={history['Var_k'][0]:.3f}, end={history['Var_k'][-1]:.3f}")
     print(f"  cos Φ:   start={history['cos_Phi'][0]:.3f}, end={history['cos_Phi'][-1]:.3f}")
     print(f"  CF:      start={history['CF'][0]:.3f}, end={history['CF'][-1]:.3f}")
