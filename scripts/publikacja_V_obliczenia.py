@@ -207,10 +207,10 @@ print("="*72)
 print("\n[SYGNATURA 1] f_NL^equil = 14.5")
 print(f"  Source: 45 Spin(10) gauge fields")
 print(f"  Detection: 14.5σ w CMB-S4 (2035)")
-print(f"  Kształt: 70% equiyearseral + 30% local")
+print(f"  Kształt: 70% equilateral + 30% local")
 
 print("\n[SYGNATURA 2] B_TTB ≠ 0")
-print(f"  Source: CP-vioyearsion from chiral torsion (δ_CP = {delta_CP})")
+print(f"  Source: CP-violation from chiral torsion (δ_CP = {delta_CP})")
 print(f"  Detection: polaryzacja B-mode w LiteBIRD")
 print(f"  Uniqueness: B_TTB = 0 in all other models (CP preserved)")
 
