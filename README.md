@@ -1,5 +1,4 @@
-# Spin(10) Theory of Everything — SHZSpin10QuantumEngine
-
+# Spin(10) Framework
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](LICENSE)
 [![arXiv](https://img.shields.io/badge/arXiv-preprint-red.svg)](#publications)
